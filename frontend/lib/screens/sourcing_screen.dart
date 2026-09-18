@@ -17,9 +17,9 @@ class _SourcingScreenState extends State<SourcingScreen> {
   List<UnifiedProduct> _products = [];
   bool _isLoading = false;
   Timer? _debounce;
+  bool _verifiedOnly = false;
 
   final List<String> _platforms = ['ALL', 'ALIBABA', 'ALIEXPRESS', '1688', 'CJDROPSHIPPING'];
-  bool _verifiedOnly = false;
 
   @override
   void dispose() {
@@ -220,12 +220,12 @@ class ProductCard extends StatelessWidget {
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Supplier: \${product.supplierName} | Platform: \${product.platform}'),
+                Text('Supplier: ${product.supplierName} | Platform: ${product.platform}'),
                 Row(
                   children: [
                     if (product.isVerifiedSupplier) const Icon(Icons.verified, size: 16, color: Colors.blue),
                     if (product.hasTradeAssurance) const Icon(Icons.shield, size: 16, color: Colors.green),
-                    if (product.goldSupplierYears != null) Text(' Gold: \${product.goldSupplierYears}Y', style: const TextStyle(fontSize: 12)),
+                    if (product.goldSupplierYears != null) Text(' Gold: ${product.goldSupplierYears}Y', style: const TextStyle(fontSize: 12)),
                   ],
                 ),
               ],
