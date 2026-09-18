@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/product.dart';
-import 'dart:io' show Platform;
+
 import 'package:flutter/foundation.dart';
 
 class ApiService {
   static String get _baseUrl {
     if (kIsWeb) return 'http://localhost:8080/api/v1';
-    if (Platform.isAndroid) return 'http://10.0.2.2:8080/api/v1';
+    if (defaultTargetPlatform == TargetPlatform.android) return 'http://10.0.2.2:8080/api/v1';
     return 'http://localhost:8080/api/v1';
   }
 
